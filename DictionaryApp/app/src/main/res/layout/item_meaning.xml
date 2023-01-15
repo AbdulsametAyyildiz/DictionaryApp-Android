@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <import type="android.view.View" />
+        <variable
+            name="meaning"
+            type="tr.com.abdulsamet.dictionary.custom.model.ProcessedMeaning.Meaning" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="0dp"
+        android:paddingVertical="14dp"
+        android:paddingHorizontal="16dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:text="@{String.valueOf(meaning.order) + ` -`}"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:layout_marginStart="6dp"
+                android:textColor="@color/button"
+                android:text="@{meaning.parent}"/>
+            
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:layout_marginTop="12dp"
+            android:textColor="@color/black"
+            android:text="@{meaning.definition}"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:layout_marginTop="12dp"
+            android:textColor="@color/black"
+            android:visibility="@{meaning.example != null ? View.VISIBLE : View.GONE}"
+            android:text="@string/text_example"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="8sp"
+            android:layout_marginTop="12dp"
+            android:visibility="@{meaning.example != null ? View.VISIBLE : View.GONE}"
+            android:textColor="@color/example"
+            android:text="@{meaning.example != null ? meaning.example : ``}"
+            tools:ignore="SmallSp" />
+
+    </LinearLayout>
+</layout>
